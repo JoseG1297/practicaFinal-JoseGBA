@@ -1,6 +1,8 @@
-import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
+import { View, StyleSheet, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-elements';
- 
+import { AntDesign } from '@expo/vector-icons'; 
+import { MaterialIcons } from '@expo/vector-icons';
+
 export default function PostHome({postState}) {
   return (
     <View style={styles.container}>
@@ -10,6 +12,14 @@ export default function PostHome({postState}) {
                 <Image  source={{ uri: postState.user_image }} style={styles.profilePosts} />
                 <Text style={styles.profileText}>{postState.user_name}</Text>
             </View>
+          <View style={styles.containerIcons}>
+              <TouchableOpacity>
+                <MaterialIcons  name="save-alt" size={30} color="white" />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                  <AntDesign  style={styles.icons} name="like2" size={30} color="white" />
+              </TouchableOpacity>
+          </View>
         </View>
         <Text style={styles.postCaption}>{postState.post_caption}</Text>
         <View style={styles.containerImagePost}>
@@ -21,7 +31,7 @@ export default function PostHome({postState}) {
               <Image source={{ uri: item.url }} key={index} style={{width: 450,  height: 450, resizeMode:'cover'}} />
             )}
           />
-          </View>
+        </View>
     </View>
   );
 }
@@ -68,5 +78,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "justify",
     margin: 5
+  },
+  containerIcons: {
+    height: 60,
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginHorizontal: 10
+  },
+  icons:{
+    marginLeft: 10,
   }
 });

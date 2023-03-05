@@ -1,6 +1,6 @@
 import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
-import { AntDesign } from '@expo/vector-icons'; 
+import { SimpleLineIcons } from '@expo/vector-icons'; 
 
 export default function HeaderHome() {
   return (
@@ -10,7 +10,7 @@ export default function HeaderHome() {
       </TouchableOpacity>
       <View style={styles.iconosContainer}>
         <TouchableOpacity>
-          <AntDesign style={styles.icons} name="pluscircleo" size={30} color="white" />
+            <SimpleLineIcons name="logout" size={30} color="white" />
         </TouchableOpacity>
       </View>
     </View>

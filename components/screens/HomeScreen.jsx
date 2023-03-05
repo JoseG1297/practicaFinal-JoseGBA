@@ -4,6 +4,7 @@ import { Divider } from 'react-native-elements';
 import HeaderHome from '../home/HeaderHome';
 import StoriesHome from '../home/StoriesHome';
 import PostHome from '../home/PostHome';
+import FooterHome from '../home/FooterHome';
 
 const postData = [
     {
@@ -76,13 +77,15 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <HeaderHome />
-        <Divider width={1} orientation='vertical'/>
+        <Divider width={5} orientation='vertical'/>
       <StoriesHome />
       <ScrollView>
         {postData.map((post, index) =>(
             <PostHome postState={post}  key={index}/>
         ))}
       </ScrollView>
+      <Divider width={5} orientation='vertical'/>
+      <FooterHome />
     </SafeAreaView>
   );
 }
