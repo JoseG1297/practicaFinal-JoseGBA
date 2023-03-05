@@ -13,7 +13,7 @@ const postData = [
         user_name: 'Test User DOS',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 1,
@@ -21,7 +21,7 @@ const postData = [
         user_name: 'Test User UNO',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 3,
@@ -29,7 +29,7 @@ const postData = [
         user_name: 'Test User TRES',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 9,
@@ -37,7 +37,7 @@ const postData = [
         user_name: 'Test User Nueve',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [ {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 5,
@@ -45,7 +45,7 @@ const postData = [
         user_name: 'Test User CINCO',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 6,
@@ -53,7 +53,7 @@ const postData = [
         user_name: 'Test User SEIS',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 7,
@@ -61,7 +61,7 @@ const postData = [
         user_name: 'Test User SIETE',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
+       
     },
     {
         user_id: 8,
