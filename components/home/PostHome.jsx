@@ -11,6 +11,7 @@ export default function PostHome({postState}) {
                 <Text style={styles.profileText}>{postState.user_name}</Text>
             </View>
         </View>
+        <Text style={styles.postCaption}>{postState.post_caption}</Text>
         <View style={styles.containerImagePost}>
           <FlatList
             horizontal={true} 
@@ -20,7 +21,6 @@ export default function PostHome({postState}) {
               <Image source={{ uri: item.url }} key={index} style={{width: 450,  height: 450, resizeMode:'cover'}} />
             )}
           />
-          <Text style={styles.profileText}>{postState.user_name}</Text>
           </View>
     </View>
   );
@@ -29,12 +29,13 @@ export default function PostHome({postState}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 30
+    marginBottom: 10
   },
   containerHeader:{
     flexDirection: "row",
     justifyContent: "space-between",
     margin:5,
+    paddingTop: 10,
     alignItems: "center"
   },
   conatinerInfoHeader:{
@@ -59,5 +60,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10,
     fontWeight: "bold",
+  },
+  postCaption:{
+    color: "white",
+    fontSize: 16,
+    marginRight: 10,
+    fontWeight: "bold",
+    textAlign: "justify",
+    margin: 5
   }
 });
