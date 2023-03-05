@@ -69,7 +69,6 @@ const postData = [
         user_name: 'Test User OCHO',
         post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
         post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-        post_coments: [{ user_name: 'usuarioUno', comment: 'esta padrisimo', user_name: 'usuarioDos', comment: 'esta aun mas padrisimo'}]
     }
 ]
 
