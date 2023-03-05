@@ -1,7 +1,6 @@
 import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons'; 
-import { Ionicons } from '@expo/vector-icons'; 
 
 export default function HeaderHome() {
   return (
@@ -12,12 +11,6 @@ export default function HeaderHome() {
       <View style={styles.iconosContainer}>
         <TouchableOpacity>
           <AntDesign style={styles.icons} name="pluscircleo" size={30} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <AntDesign style={styles.icons} name="smileo" size={30} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons style={styles.icons} name="chatbubble-outline" size={30} color="white" />
         </TouchableOpacity>
       </View>
     </View>

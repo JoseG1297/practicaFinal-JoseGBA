@@ -47,19 +47,19 @@ const data = [
 export default function StoriesHome() {
   return (
     <View style={styles.container}>
-      <InstaStory
-        data={data}
-        duration={10}
-        onStart={(item) => console.log(item)}
-        onClose={(item) => console.log('close: ', item)}
-      />
+    <InstaStory
+      data={data}
+      duration={10}
+      onStart={(item) => console.log(item)}
+      onClose={(item) => console.log('close: ', item)}
+      avatarTextStyle="white"
+    />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginBottom: 13
+    flex: 0
   }
 });
