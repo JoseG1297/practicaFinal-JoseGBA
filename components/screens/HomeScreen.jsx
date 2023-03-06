@@ -4,7 +4,7 @@ import { Divider } from 'react-native-elements';
 import HeaderHome from '../home/HeaderHome';
 import StoriesHome from '../home/StoriesHome';
 import PostHome from '../home/PostHome';
-import FooterHome from '../home/FooterHome';
+import Footer from '../generales/Footer';
 
 const postData = [
     {
@@ -84,7 +84,7 @@ export default function HomeScreen() {
         ))}
       </ScrollView>
       <Divider width={5} orientation='vertical'/>
-      <FooterHome />
+      <Footer />
     </SafeAreaView>
   );
 }

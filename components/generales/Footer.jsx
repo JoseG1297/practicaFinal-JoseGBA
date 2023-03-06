@@ -2,7 +2,7 @@ import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons'; 
 
-export default function FooterHome() {
+export default function Footer() {
   return (
     <View style={styles.container}>
         <TouchableOpacity>
