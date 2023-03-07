@@ -4,6 +4,7 @@ import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import * as ImagePicker from "expo-image-picker";
 
@@ -41,7 +42,7 @@ export default function Footer()
   return (
     <View style={styles.container}>
         <TouchableOpacity onPress={() => irBiografia()}>
-            <AntDesign name="switcher" size={30} color="white" />
+            <MaterialCommunityIcons name="image-multiple-outline"  size={30} color="white" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => irInicio()}>
             <AntDesign name="home" size={30} color="white" />
