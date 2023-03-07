@@ -13,8 +13,8 @@ export default function NavegacionInterna() {
   return (
     <NavigationContainer >
       <Stack.Navigator initialRouteName="Home" >
-        <Stack.Screen name="Home" component={BioScreen} options={{headerShown: false}}   />
-        <Stack.Screen name="Biografia" component={HomeScreen} options={{headerShown: false}}  />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}   />
+        <Stack.Screen name="Biografia" component={BioScreen} options={{headerShown: false}}  />
       </Stack.Navigator>
     </NavigationContainer>
   );

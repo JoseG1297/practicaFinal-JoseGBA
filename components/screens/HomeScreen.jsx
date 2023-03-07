@@ -72,7 +72,7 @@ const postData = [
     }
 ]
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <HeaderHome />
@@ -92,5 +92,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "black"
   }
 });
