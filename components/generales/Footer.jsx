@@ -35,7 +35,6 @@ export default function Footer()
 
     if (result.assets.length > 0) {
       setImagenes(result.assets[0].uri);
-      console.log(result.assets);
     }
   }
 
