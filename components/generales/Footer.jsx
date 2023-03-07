@@ -6,12 +6,21 @@ import { useNavigation } from '@react-navigation/native';
 export default function Footer() {
   const navigation = useNavigation();
 
+
+  const irBiografia = () => {
+    navigation.navigate('Biografia')
+  }
+
+  const irInicio = () => {
+    navigation.navigate('Home')
+  }
+
   return (
     <View style={styles.container}>
-        <TouchableOpacity onPress={navigation.navigate('Biografia')}>
+        <TouchableOpacity onPress={() => irBiografia()}>
             <AntDesign name="switcher" size={30} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => irInicio()}>
             <AntDesign name="home" size={30} color="white" />
         </TouchableOpacity>
         <TouchableOpacity >

@@ -14,9 +14,6 @@ export default function PostHome({postState}) {
             </View>
           <View style={styles.containerIcons}>
               <TouchableOpacity>
-                <MaterialIcons  name="save-alt" size={30} color="white" />
-              </TouchableOpacity>
-              <TouchableOpacity>
                   <AntDesign  style={styles.icons} name="like2" size={30} color="white" />
               </TouchableOpacity>
           </View>
