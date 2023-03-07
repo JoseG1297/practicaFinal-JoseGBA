@@ -3,7 +3,7 @@ import { Divider } from 'react-native-elements';
 
 import HeaderHome from '../home/HeaderHome';
 import StoriesHome from '../home/StoriesHome';
-import PostHome from '../home/PostHome';
+import PostContainer from '../generales/PostContainer';
 import Footer from '../generales/Footer';
 
 const postData = [
@@ -80,7 +80,7 @@ export default function HomeScreen({ navigation }) {
       <StoriesHome />
       <ScrollView>
         {postData.map((post, index) =>(
-            <PostHome postState={post}  key={index}/>
+            <PostContainer postState={post}  key={post.user_id}/>
         ))}
       </ScrollView>
       <Divider width={5} orientation='vertical'/>
