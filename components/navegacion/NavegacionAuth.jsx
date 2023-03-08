@@ -12,9 +12,9 @@ const Stack = createNativeStackNavigator();
 export default function NavegacionAuth() {
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName="Login" >
+      <Stack.Navigator initialRouteName="Registro" >
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}   />
-        <Stack.Screen name="Registro" component={RegistroScreen} />
+        <Stack.Screen name="Registro" component={RegistroScreen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
