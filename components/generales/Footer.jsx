@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
-import { AntDesign } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+
+import { AntDesign } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import * as ImagePicker from "expo-image-picker";

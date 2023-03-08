@@ -56,7 +56,6 @@ export default function FormRegisterScreen()
 
     createAt(userEmail, userPassword)
         .then((data) => {
-          debugger;
             if(data.code != undefined)
             {
               switch(data.code)
