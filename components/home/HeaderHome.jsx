@@ -2,14 +2,24 @@ import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
 
-export default function HeaderHome() {
+import { useNavigation } from '@react-navigation/native';
+
+export default function HeaderHome() 
+{
+  const navigation = useNavigation();
+
+
+  const cerrarSesion = () => {
+    navigation.navigate('Login')
+  }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
         <Image style={styles.logo} source={require('../../imagenes/LogoWhite.png')} />
       </TouchableOpacity>
       <View style={styles.iconosContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => cerrarSesion()}>
               <AntDesign name="logout" size={30} color="white" />
         </TouchableOpacity>
       </View>
