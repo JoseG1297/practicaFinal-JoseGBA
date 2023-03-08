@@ -4,8 +4,17 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
+import { useNavigation } from '@react-navigation/native';
 
-export default function HeaderBio() {
+export default function HeaderBio() 
+{
+  const navigation = useNavigation();
+  
+  const cerrarSesion = () => {
+    navigation.navigate('Login')
+  }
+
+
   return (
     <View>
       <View style={styles.container}>
@@ -18,7 +27,7 @@ export default function HeaderBio() {
           <TouchableOpacity>
               <AntDesign name="bells" size={30} color="white"  />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => cerrarSesion()}>
               <AntDesign name="logout" size={30} color="white" />
           </TouchableOpacity>
       </View>
