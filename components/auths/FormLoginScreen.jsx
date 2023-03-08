@@ -1,6 +1,15 @@
 import { StyleSheet, TextInput, Pressable, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function FormLoginScreen() {
+export default function FormLoginScreen() 
+{
+  const navigation = useNavigation();
+  
+  const irAlRegistro = () => {
+    navigation.navigate('Registro')
+  }
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inputStyle}>
@@ -32,7 +41,7 @@ export default function FormLoginScreen() {
       </Pressable>
       <View style={styles.registroContainer}>
         <Text>Aun no te has registrado?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => irAlRegistro()}>
           <Text style={{ color: '#1D96EA' }}>  Registrate aqui.</Text>
         </TouchableOpacity>
       </View>
@@ -57,7 +66,7 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   pressLogin:{
-    backgroundColor: '#0D74BB',
+    backgroundColor: '#333739',
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 42,
