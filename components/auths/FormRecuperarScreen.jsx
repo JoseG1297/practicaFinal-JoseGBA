@@ -3,27 +3,20 @@ import React, {useState} from 'react';
 import { StyleSheet, TextInput, Pressable, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-import {createAt, signIn} from '../../firebaseConfig/auths'
-
 import Cargando from '../generales/Cargando';
 import AlertModal from '../generales/AlertModal';
 
+import {createAt, signIn, resetPassword} from '../../firebaseConfig/auths'
 
-export default function FormLoginScreen() 
+export default function FormRecuperarScreen() 
 {
   const navigation = useNavigation();
   
-  const irAlRegistro = () => {
-    navigation.navigate('Registro')
-  }
-
-  const irAlRecuperarContra = () => {
-    navigation.navigate('RecuperarContra')
+  const irAlLogin = () => {
+    navigation.navigate('Login')
   }
 
   const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
 
   
   const [loading, setLoading] = useState(false);
@@ -38,49 +31,22 @@ export default function FormLoginScreen()
         setShowModal(true);
       return;
     }
-    if (!userPassword) {
-        setErrortext('Debes ingresar el Password');
-        setShowModal(true);
-      return;
-    }
+
     setLoading(true);
 
-    signIn(userEmail, userPassword)
-    .then((data) => {
+    resetPassword(userEmail)
+    .then((correoEnviado) => {
       setLoading(false);
-      if(data.code != undefined)
-      {
-        switch(data.code)
-        {
-          case 'auth/invalid-email':
-            setErrortext('El email que ingresaste es invalido.') ;
-            setShowModal(true);
-          break;
-          case 'auth/wrong-password':
-            setErrortext('El password es incorrecto, verifica.') ;
-            setShowModal(true);
-          break;
-          case 'auth/user-not-found':
-            setErrortext('El usuario no ha sido encontrado, verifica.') ;
-            setShowModal(true);
-          break;
-        }
+      if(correoEnviado){
+        setErrortext('Correo enviado exitosamente!') ;
+        setShowModal(true);
+        setCambiarVista(true)
       }
-      else
-      {
-        if(data.user != undefined)
-        {
-          setCambiarVista(true);
-          navigation.navigate({
-              name: 'Home',
-          });
-        }
-        else
-        {
-            setErrortext('No se pudo registrar correctamente al usuario, intente de nuevo.') ;
-            setShowModal(true);
-        }
+      else{
+        setErrortext('No se pudo enviar el correo, intenta de nuevo!') ;
+        setShowModal(true);
       }
+      
     })
     .catch((error) => {
         setErrortext('Error: ' + error.message) ;
@@ -103,33 +69,17 @@ export default function FormLoginScreen()
             textContentType='emailAddress'
             autoFocus={true}/>
         </View>
-        <View style={styles.inputStyle}>
-          <TextInput 
-            onChangeText={setUserPassword}
-            placeholderTextColor="#444"
-            placeholder='Ingresa Contrasena'
-            autoCapitalize='none'
-            autoCorrect={true}
-            secureTextEntry={true}
-            textContentType='password'
-            />
-        </View>
-        <View style={styles.passwordForget}>
-          <TouchableOpacity  onPress={() => irAlRecuperarContra()}>
-            <Text style={{ color: '#1D96EA' }}>Olvidaste tu contrasena?</Text>
-          </TouchableOpacity>
-        </View>
         <Pressable onPress={() => verificarUsuario()} style={styles.pressLogin} titleSize={20} >
-          <Text style={styles.pressLoginText}>Ingresar</Text>
+          <Text style={styles.pressLoginText}>Recuperar Contrasena</Text>
         </Pressable>
         <View style={styles.registroContainer}>
-          <Text>Aun no te has registrado?</Text>
-          <TouchableOpacity onPress={() => irAlRegistro()}>
-            <Text style={{ color: '#1D96EA' }}>  Registrate aqui.</Text>
+          <Text>Deseas iniciar sesion?</Text>
+          <TouchableOpacity onPress={() => irAlLogin()}>
+            <Text style={{ color: '#1D96EA' }}>  Da clic aqui.</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-      <AlertModal modalVisible={showModal} setModalVisible={setShowModal} mensaje={errortext}  />
+      <AlertModal modalVisible={showModal} setModalVisible={setShowModal} mensaje={errortext} cambiarVista={cambiaVista}  />
     </>
     
   );

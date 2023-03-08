@@ -4,6 +4,7 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    sendPasswordResetEmail,
   } from "firebase/auth";
   
   const auth = getAuth(appFirebase);
@@ -32,4 +33,15 @@ import {
       });
   };
   
-  export { createAt, signIn };
+
+  const resetPassword = async (email) => {
+    return  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      return true;
+    })
+    .catch((error) => {
+      return false;
+    });
+  };
+  
+  export { createAt, signIn, resetPassword };
