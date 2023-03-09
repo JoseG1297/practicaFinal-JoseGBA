@@ -22,13 +22,13 @@ export default function HeaderBio()
           <Image  source={{ uri: 'https://pbs.twimg.com/profile_images/1222140802475773952/61OmyINj.jpg' }} style={styles.profilePosts} />
         </TouchableOpacity>
           <TouchableOpacity>
-              <Entypo name="facebook"  size={35} color="white" />
+              <Entypo name="facebook"  size={35} color="black" />
           </TouchableOpacity>
           <TouchableOpacity>
-              <AntDesign name="bells" size={30} color="white"  />
+              <AntDesign name="bells" size={30} color="black"  />
           </TouchableOpacity>
           <TouchableOpacity  onPress={() => cerrarSesion()}>
-              <AntDesign name="logout" size={30} color="white" />
+              <AntDesign name="logout" size={30} color="black" />
           </TouchableOpacity>
       </View>
       <View>
@@ -54,19 +54,19 @@ export default function HeaderBio()
       borderRadius: 50,
       marginLeft: 15,
       borderWidth: 3,
-      borderColor: "white",
+      borderColor: "black",
       resizeMode: 'contain',
       marginBottom: 10,
       marginTop:10
     },
     profileText:{
-      color: "white",
+      color: "black",
       fontSize: 18,
       marginLeft: 10,
       fontWeight: "bold",
     },
     profileSubTitle:{
-      color: "white",
+      color: "black",
       fontSize: 12,
       marginLeft: 10,
     }

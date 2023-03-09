@@ -42,13 +42,13 @@ export default function Footer()
   return (
     <View style={styles.container}>
         <TouchableOpacity onPress={() => irBiografia()}>
-            <MaterialCommunityIcons name="image-multiple-outline"  size={30} color="white" />
+            <MaterialCommunityIcons name="image-multiple-outline"  size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => irInicio()}>
-            <AntDesign name="home" size={30} color="white" />
+            <AntDesign name="home" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => agregarImagenes()}>
-            <AntDesign style={styles.icons} name="pluscircleo" size={30} color="white" />
+            <AntDesign style={styles.icons} name="pluscircleo" size={30} color="black" />
         </TouchableOpacity>
     </View>
   );

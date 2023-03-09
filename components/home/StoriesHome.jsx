@@ -52,7 +52,7 @@ export default function StoriesHome() {
       duration={10}
       onStart={(item) => console.log(item)}
       onClose={(item) => console.log('close: ', item)}
-      avatarTextStyle="white"
+      avatarTextStyle="black"
     />
     </View>
   );

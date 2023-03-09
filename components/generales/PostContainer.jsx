@@ -62,17 +62,17 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginLeft: 6,
     borderWidth: 3,
-    borderColor: "white",
+    borderColor: "black",
     resizeMode: 'contain'
   },
   profileText:{
-    color: "white",
+    color: "black",
     fontSize: 16,
     marginLeft: 10,
     fontWeight: "bold",
   },
   postCaption:{
-    color: "white",
+    color: "black",
     fontSize: 16,
     marginRight: 10,
     fontWeight: "bold",

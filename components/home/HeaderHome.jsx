@@ -20,7 +20,7 @@ export default function HeaderHome()
       </TouchableOpacity>
       <View style={styles.iconosContainer}>
         <TouchableOpacity  onPress={() => cerrarSesion()}>
-              <AntDesign name="logout" size={30} color="white" />
+              <AntDesign name="logout" size={30} color="black" />
         </TouchableOpacity>
       </View>
     </View>
