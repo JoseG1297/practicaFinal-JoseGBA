@@ -21,7 +21,7 @@ export default function NavegacionGeneral() {
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}   />
         <Stack.Screen name="Biografia" component={BioScreen} options={{headerShown: false}}  />
         <Stack.Screen name="RecuperarContra" component={RecContraScreen} options={{headerShown: false}}  />
-        <Stack.Screen name="Nuevo Post" component={NuevoPost} initialParams={{ img: '' }}  />
+        <Stack.Screen name="Nuevo Post" component={NuevoPost}  />
       </Stack.Navigator>
     </NavigationContainer>
   );
