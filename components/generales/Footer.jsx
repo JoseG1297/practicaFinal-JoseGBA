@@ -13,7 +13,6 @@ import * as ImagePicker from "expo-image-picker";
 export default function Footer() 
 {
   const navigation = useNavigation();
-  const [imagenes, setImagenes] = useState([]);
 
 
 
@@ -35,7 +34,10 @@ export default function Footer()
 
 
     if (result.assets.length > 0) {
-      setImagenes(result.assets[0].uri);
+        navigation.navigate({
+          name: 'Nuevo Post',
+          params: { post: result.assets[0].base64 }
+      });
     }
   }
 

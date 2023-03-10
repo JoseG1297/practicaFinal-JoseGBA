@@ -16,7 +16,7 @@ export default function HeaderHome()
   return (
     <View style={styles.container}>
       <TouchableOpacity>
-        <Image style={styles.logo} source={require('../../imagenes/LogoWhite.png')} />
+        <Image style={styles.logo} source={require('../../imagenes/LogoBlack.png')} />
       </TouchableOpacity>
       <View style={styles.iconosContainer}>
         <TouchableOpacity  onPress={() => cerrarSesion()}>
