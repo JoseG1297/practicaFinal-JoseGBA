@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
+import { View, StyleSheet, Image, Pressable, Text} from 'react-native';
 import Textarea from 'react-native-textarea';
 
 export default function NuevoPost({route})
@@ -14,6 +14,9 @@ export default function NuevoPost({route})
                 underlineColorAndroid={'transparent'}
             />
             <Image source={{uri: "data:image/png;base64,"+route.params.post}} style={styles.imageStyle} />
+            <Pressable  style={styles.pressLogin} titleSize={20} >
+                <Text style={styles.pressLoginText}>Publicar</Text>
+            </Pressable>
         </View>
     )
 }
@@ -43,5 +46,18 @@ const styles = StyleSheet.create({
       height: 170,
       fontSize: 14,
       color: '#333',
+    },
+    pressLogin:{
+        marginTop: 20,
+        backgroundColor: '#333739',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: 42,
+        borderRadius: 4
+    },
+    pressLoginText:{
+        fontWeight: '600',
+        color: '#fff',
+        fontSize: 18
     }
   });
