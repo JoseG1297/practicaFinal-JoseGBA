@@ -10,7 +10,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as ImagePicker from "expo-image-picker";
 
 
-export default function Footer() 
+export default function Footer({ postFrom = ""}) 
 {
   const navigation = useNavigation();
 
@@ -36,7 +36,7 @@ export default function Footer()
     if (result.assets.length > 0) {
         navigation.navigate({
           name: 'Nuevo Post',
-          params: { post: result.assets[0].base64 }
+          params: { url: result.assets[0].base64 , postearEn: postFrom}
       });
     }
   }

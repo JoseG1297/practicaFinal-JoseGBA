@@ -14,6 +14,8 @@ import AlertModal from '../generales/AlertModal';
 
 export default function NuevoPost({route})
 {
+  const provieneDe = route.params.postearEn;
+  const base64Img = route.params.url;
   const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
   const [postCaption, setPostCaption] = useState('');
   
@@ -29,7 +31,7 @@ export default function NuevoPost({route})
       set(ref(database, "postsUser/" + userInfo.uid + "/" + postId), {
         post_id: postId,
         post_caption: postCaption,
-        post_images: [{ url: route.params.post}]
+        post_images: [{ url: base64Img}]
       }).then((dt) => {
           setLoading(false);
           setErrortext('Publiacion realizadas conn exito!') ;
@@ -50,11 +52,11 @@ export default function NuevoPost({route})
                 placeholderTextColor={'#c7c7c7'}
                 underlineColorAndroid={'transparent'}
             />
-            <Image source={{uri: "data:image/png;base64,"+ route.params.post}} style={styles.imageStyle} />
+            <Image source={{uri: "data:image/png;base64,"+ base64Img}} style={styles.imageStyle} />
             <Pressable  onPress={() => publicarPost()} style={styles.pressLogin} titleSize={20} >
                 <Text style={styles.pressLoginText}>Publicar</Text>
             </Pressable>
-            <AlertModal modalVisible={showModal} setModalVisible={setShowModal} mensaje={errortext} vista="Home" cambiarVista={true} />
+            <AlertModal modalVisible={showModal} setModalVisible={setShowModal} mensaje={errortext} vista={provieneDe} cambiarVista={true} />
         </View>
     )
 }
