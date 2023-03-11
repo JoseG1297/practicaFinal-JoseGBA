@@ -1,23 +1,31 @@
+import React, {useState, useContext} from 'react';
+
 import { View, StyleSheet, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons'; 
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function PostHome({postState}) {
+import UsuarioSesionContext from '../hooks/SessionUser';
+
+export default function PostHome({postState}) 
+{
+  const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
+
   return (
     <View style={styles.container}>
         <Divider width={1} orientation='vertical'/>
         <View style={styles.containerHeader}> 
             <View style={styles.conatinerInfoHeader}>
-                <Image  source={{ uri: postState.user_image }} style={styles.profilePosts} />
-                <Text style={styles.profileText}>{postState.user_name}</Text>
+              {userInfo?.user_image != undefined ? <Image  source={{ uri: postState.user_image }} style={styles.profilePosts} /> :
+              <Image  source={require('../../imagenes/defaultImg.jpg')} style={styles.profilePosts} />}
+                <Text style={styles.profileText}>{userInfo.user_name}</Text>
             </View>
           <View style={styles.containerIcons}>
               <TouchableOpacity>
-                <MaterialIcons  name="save-alt" size={30} color="white" />
+                <MaterialIcons  name="save-alt" size={30} color="black" />
               </TouchableOpacity>
               <TouchableOpacity>
-                  <AntDesign  style={styles.icons} name="like2" size={30} color="white" />
+                  <AntDesign  style={styles.icons} name="like2" size={30} color="black" />
               </TouchableOpacity>
           </View>
         </View>

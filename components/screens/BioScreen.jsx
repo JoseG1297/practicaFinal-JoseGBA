@@ -8,7 +8,7 @@ import HeaderBio from  '../bio/HeaderBio';
 
 const postData = [
   {
-      user_id: 2,
+    uid: 2,
       user_image: 'https://image.freepik.com/free-vector/mobile-wallpaper-with-fluid-shapes_79603-601.jpg',
       user_name: 'Test User DOS',
       post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
@@ -24,7 +24,7 @@ export default function BioScreen({ navigation }) {
       <Divider width={5} orientation='vertical'/>
       <ScrollView>
         {postData.map((post, index) =>(
-            <PostContainer postState={post}  key={post.user_id}/>
+            <PostContainer postState={post}  key={post.uid}/>
         ))}
       </ScrollView>
       <Divider width={5} orientation='vertical'/>

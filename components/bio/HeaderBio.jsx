@@ -1,13 +1,19 @@
+import React, {useState, useContext} from 'react';
+
+
 import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
-import { SimpleLineIcons } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
 
+import UsuarioSesionContext from '../hooks/SessionUser';
+
 export default function HeaderBio() 
 {
+  const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
   const navigation = useNavigation();
   
   const cerrarSesion = () => {
@@ -18,23 +24,20 @@ export default function HeaderBio()
   return (
     <View>
       <View style={styles.container}>
-        <TouchableOpacity>
-          <Image  source={{ uri: 'https://pbs.twimg.com/profile_images/1222140802475773952/61OmyINj.jpg' }} style={styles.profilePosts} />
-        </TouchableOpacity>
           <TouchableOpacity>
-              <Entypo name="facebook"  size={35} color="black" />
+            {userInfo?.user_image != undefined ? <Image  source={{ uri: postState.user_image }} style={styles.profilePosts} /> :
+                <Image  source={require('../../imagenes/defaultImg.jpg')} style={styles.profilePosts} />}
           </TouchableOpacity>
           <TouchableOpacity>
-              <AntDesign name="bells" size={30} color="black"  />
+            <FontAwesome5 name="user-cog" size={24} color="black" />
           </TouchableOpacity>
           <TouchableOpacity  onPress={() => cerrarSesion()}>
               <AntDesign name="logout" size={30} color="black" />
           </TouchableOpacity>
       </View>
       <View>
-          <Text style={styles.profileText}>JOSE G. BAUTISTA</Text>
-          <Text style={styles.profileSubTitle}>MAS INFORMACION INECESARIA DE LA PERSONA ESN SU INSTA CHALALALALALA</Text>
-          <Text style={styles.profileSubTitle}>MAS INFORMACION INECESARIA DE LA PERSONA ESN SU INSTA CHALALALALALA</Text>
+          <Text style={styles.profileText}>{userInfo?.user_name != undefined ? userInfo?.user_name : "SIN NOMBRE DE USUARIOS"}</Text>
+          <Text style={styles.profileSubTitle}>{userInfo?.user_fullname != undefined ? userInfo?.user_fullname : "SIN NOMBRE COMPLETO"}</Text>
       </View>
     </View>
     );

@@ -2,7 +2,7 @@ import { View, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import InstaStory from 'react-native-insta-story';
 const data = [
   {
-    user_id: 1,
+    uid: 1,
     user_image:
       'https://pbs.twimg.com/profile_images/1222140802475773952/61OmyINj.jpg',
     user_name: 'Ahmet Çağlar Durmuş',
@@ -22,7 +22,7 @@ const data = [
     ],
   },
   {
-    user_id: 2,
+    uid: 2,
     user_image:
       'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
     user_name: 'Test User',

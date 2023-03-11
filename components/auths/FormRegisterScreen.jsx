@@ -79,7 +79,7 @@ export default function FormRegisterScreen()
               if(data.user != undefined)
               {
                 set(ref(database, "users/" + data.user.uid), {
-                  user_id: data.user.uid,
+                  uid: data.user.uid,
                   user_name: userName,
                   user_fullname: fullName,
                 }).then((dt) => {
