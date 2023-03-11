@@ -80,8 +80,10 @@ export default function FormRegisterScreen()
               {
                 set(ref(database, "users/" + data.user.uid), {
                   uid: data.user.uid,
+                  user_id: data.user.uid,
                   user_name: userName,
                   user_fullname: fullName,
+                  user_image: ""
                 }).then((dt) => {
                   setErrortext('registro generado exitosamente!') ;
                   setShowModal(true);

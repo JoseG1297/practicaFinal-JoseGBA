@@ -25,7 +25,7 @@ export default function HeaderBio()
     <View>
       <View style={styles.container}>
           <TouchableOpacity>
-            {userInfo?.user_image != undefined ? <Image  source={{ uri: postState.user_image }} style={styles.profilePosts} /> :
+            {userInfo.user_image != "" && userInfo.user_image != undefined ? <Image  source={{ uri: userInfo.user_image }} style={styles.profilePosts} /> :
                 <Image  source={require('../../imagenes/defaultImg.jpg')} style={styles.profilePosts} />}
           </TouchableOpacity>
           <TouchableOpacity>
@@ -36,8 +36,8 @@ export default function HeaderBio()
           </TouchableOpacity>
       </View>
       <View>
-          <Text style={styles.profileText}>{userInfo?.user_name != undefined ? userInfo?.user_name : "SIN NOMBRE DE USUARIOS"}</Text>
-          <Text style={styles.profileSubTitle}>{userInfo?.user_fullname != undefined ? userInfo?.user_fullname : "SIN NOMBRE COMPLETO"}</Text>
+          <Text style={styles.profileText}>{userInfo.user_name != "" && userInfo.user_name != undefined ? userInfo?.user_name : "SIN NOMBRE DE USUARIOS"}</Text>
+          <Text style={styles.profileSubTitle}>{userInfo.user_fullname != "" && userInfo.user_fullname != undefined != undefined ? userInfo?.user_fullname : "SIN NOMBRE COMPLETO"}</Text>
       </View>
     </View>
     );

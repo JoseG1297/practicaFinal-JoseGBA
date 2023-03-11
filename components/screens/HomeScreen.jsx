@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
 import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
@@ -11,32 +11,19 @@ import PostContainer from '../generales/PostContainer';
 import Footer from '../generales/Footer';
 
 
-import UsuarioSesionContext from '../hooks/SessionUser';
-
-const postData = [
-    {
-        uid: 2,
-        user_image: 'https://image.freepik.com/free-vector/mobile-wallpaper-with-fluid-shapes_79603-601.jpg',
-        user_name: 'Test User DOS',
-        post_caption: "Un texto mas largo que es el que va a describir la imagen que acabo de postear, una leve descripcion pero se entienede",
-        post_images: [{ url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjORKvjcbMRGYPR3QIs3MofoWkD4wHzRd_eg&usqp=CAU'}, {url:'https://files.oyebesmartest.com/uploads/preview/vivo-u20-mobile-wallpaper-full-hd-(1)qm6qyz9v60.jpg' }],
-    }
-]
-
 export default function HomeScreen({ navigation }) 
 {
-  const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
+  const [postData, setPostsData] = useState([]);
+
 
   useEffect(() => {
     (async () => {
-      const starCountRef = ref(database, `users/${userInfo.uid}`);
+      const starCountRef = ref(database, `postsUser`);
       onValue(starCountRef, (snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
-          setUserInfo(snapshot.val())
+          setPostsData(snapshot.val())
         } else {
           console.log("No data available");
-          navigation.navigate('Login');
         }
       })
     })();
@@ -49,7 +36,7 @@ export default function HomeScreen({ navigation })
       <StoriesHome />
       <ScrollView>
         {postData.map((post, index) =>(
-            <PostContainer postState={post}  key={post.uid}/>
+            <PostContainer postState={post}  key={post.post_id}/>
         ))}
       </ScrollView>
       <Divider  orientation='vertical'/>
