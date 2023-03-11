@@ -1,22 +1,60 @@
+import React, {useState, useContext} from 'react';
+
 import { View, StyleSheet, Image, Pressable, Text} from 'react-native';
 import Textarea from 'react-native-textarea';
 
+import { database,ref, set } from '../../firebaseConfig/database';
+
+import uuid from 'react-native-uuid';
+
+import UsuarioSesionContext from '../hooks/SessionUser';
+
+import Cargando from '../generales/Cargando';
+import AlertModal from '../generales/AlertModal';
+
 export default function NuevoPost({route})
 {
+  const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
+  const [postCaption, setPostCaption] = useState('');
+  
+  const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [errortext, setErrortext] = useState('');
+
+  const publicarPost = () => 
+  {
+    setLoading(true);
+      let postId = uuid.v4();
+
+      set(ref(database, "postsUser/" + userInfo.uid + "/" + postId), {
+        post_id: postId,
+        post_caption: postCaption,
+        post_images: [{ url: route.params.post}]
+      }).then((dt) => {
+          setLoading(false);
+          setErrortext('Publiacion realizadas conn exito!') ;
+          setShowModal(true);
+      })
+      .catch((error) => console.log(error));
+  };  
+
     return (
         <View style={styles.container}> 
+          <Cargando loading={loading} />
             <Textarea
                 containerStyle={styles.textareaContainer}
                 style={styles.textarea}
+                onChangeText={setPostCaption}
                 maxLength={120}
                 placeholder={'Escribe un comentario al respecto。。。'}
                 placeholderTextColor={'#c7c7c7'}
                 underlineColorAndroid={'transparent'}
             />
-            <Image source={{uri: "data:image/png;base64,"+route.params.post}} style={styles.imageStyle} />
-            <Pressable  style={styles.pressLogin} titleSize={20} >
+            <Image source={{uri: "data:image/png;base64,"+ route.params.post}} style={styles.imageStyle} />
+            <Pressable  onPress={() => publicarPost()} style={styles.pressLogin} titleSize={20} >
                 <Text style={styles.pressLoginText}>Publicar</Text>
             </Pressable>
+            <AlertModal modalVisible={showModal} setModalVisible={setShowModal} mensaje={errortext} vista="Home" cambiarVista={true} />
         </View>
     )
 }

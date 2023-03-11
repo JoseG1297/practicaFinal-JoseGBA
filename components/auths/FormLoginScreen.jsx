@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
 import { StyleSheet, TextInput, Pressable, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -9,9 +9,11 @@ import {createAt, signIn} from '../../firebaseConfig/auths'
 import Cargando from '../generales/Cargando';
 import AlertModal from '../generales/AlertModal';
 
+import UsuarioSesionContext from '../hooks/SessionUser';
 
 export default function FormLoginScreen() 
 {
+  const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
   const navigation = useNavigation();
   
   const irAlRegistro = () => {
@@ -70,6 +72,7 @@ export default function FormLoginScreen()
       {
         if(data.user != undefined)
         {
+          setUserInfo(data.user)
           setCambiarVista(true);
           navigation.navigate({
               name: 'Home',

@@ -2,12 +2,28 @@ import React from 'react';
 import { Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function AlertModal({setModalVisible, modalVisible, mensaje, cambiarVista = false} )
+export default function AlertModal({setModalVisible, modalVisible, mensaje, cambiarVista = false, vista = ''} )
 {
 
   const navigation = useNavigation();
-  const onPressDos = (cambiarVista) => {
-    !cambiarVista ? setModalVisible(false) : navigation.navigate('Login')
+  const onPressDos = (cambiarVista, vista) => {
+    if(!cambiarVista){
+      setModalVisible(false)
+    }
+    else
+    {
+      switch (vista) {
+        case "Home":
+          navigation.navigate('Home')
+        break;
+        case "Biografia":
+          navigation.navigate('Biografia')
+        break;
+        default:
+          navigation.navigate('Login')
+        break;
+      }
+    }
   };
 
   return (
@@ -20,7 +36,7 @@ export default function AlertModal({setModalVisible, modalVisible, mensaje, camb
             <Text style={styles.modalText}>{mensaje}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => onPressDos(cambiarVista)}>
+              onPress={() => onPressDos(cambiarVista, vista)}>
               <Text style={styles.textStyle}>Cerrar</Text>
             </Pressable>
           </View>
