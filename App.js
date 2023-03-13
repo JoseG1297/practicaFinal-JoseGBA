@@ -1,4 +1,9 @@
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { StyleSheet,LogBox,  SafeAreaView } from 'react-native';
+
+LogBox.ignoreLogs([
+"ViewPropTypes will be removed",
+"ColorPropType will be removed",
+])
 
 import NavegacionGeneral from './components/navegacion/NavegacionGeneral';
 
