@@ -32,8 +32,8 @@ export default function NuevoPost({route})
         post_id: postId,
         post_caption: postCaption,
         post_images: [{ url: base64Img}],
-        user_name: userInfo.user_name,
-        user_image:  userInfo.user_image
+        user_name: userInfo?.user_name,
+        user_image:  userInfo?.user_image
       }).then((dt) => {
           setLoading(false);
           setErrortext('Publiacion realizadas conn exito!') ;

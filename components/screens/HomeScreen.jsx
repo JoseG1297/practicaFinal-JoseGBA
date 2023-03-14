@@ -22,6 +22,7 @@ export default function HomeScreen({ navigation })
       onValue(starCountRef, (snapshot) => {
         if (snapshot.exists()) {
           setPostsData(snapshot.val())
+          console.log(snapshot.val());
         } else {
           console.log("No data available");
         }
@@ -35,9 +36,9 @@ export default function HomeScreen({ navigation })
         <Divider  orientation='vertical'/>
       <StoriesHome />
       <ScrollView>
-        {postData.map((post, index) =>(
+        {/* {postData.map((post, index) =>(
             <PostContainer postState={post}  key={post.post_id}/>
-        ))}
+        ))} */}
       </ScrollView>
       <Divider  orientation='vertical'/>
       <Footer postFrom="Home" />
