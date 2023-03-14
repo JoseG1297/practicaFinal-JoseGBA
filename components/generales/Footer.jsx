@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { AntDesign } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import * as ImagePicker from "expo-image-picker";
 
@@ -44,10 +45,10 @@ export default function Footer({ postFrom = ""})
   return (
     <View style={styles.container}>
         <TouchableOpacity onPress={() => irBiografia()}>
-            <MaterialCommunityIcons name="image-multiple-outline"  size={30} color="black" />
+            <AntDesign name="home" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => irInicio()}>
-            <AntDesign name="home" size={30} color="black" />
+          <FontAwesome5 name="users" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => agregarImagenes()}>
             <AntDesign style={styles.icons} name="pluscircleo" size={30} color="black" />

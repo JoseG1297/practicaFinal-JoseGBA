@@ -12,7 +12,7 @@ import UsuarioSesionContext from '../hooks/SessionUser';
 import Cargando from '../generales/Cargando';
 import AlertModal from '../generales/AlertModal';
 
-export default function NuevoPost({route})
+export default function NuevoStorie({route})
 {
   let provieneDe = "";
   let base64Img = '';
@@ -28,27 +28,22 @@ export default function NuevoPost({route})
   const publicarPost  =  async  () => 
   {
       setLoading(true);
-      let postId = uuid.v4();
-      let isProfile = provieneDe == "Profile";
-
+      let storyId = uuid.v4();
       
-      const postUsers = collection(db, 'postUsers');
+      const postStories = collection(db, 'postStories');
       const img64 = "data:image/png;base64,"+ base64Img;
 
-      let today = new Date();
-      let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-      let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-      let datetime =date +" "+time;
-
-      await setDoc(doc(postUsers, postId), {
-        post_id: postId,
-        post_caption: postCaption,
-        post_images: [{ url: img64 }],
-        post_datetime: datetime,
+      await setDoc(doc(postStories, storyId), {
         uid: userInfo.uid,
         user_name: userInfo?.user_name,
         user_image: userInfo?.user_image,
-        is_profile: isProfile
+        stories: [
+        {
+            story_id: storyId,
+            story_image: img64,
+            swipeText: postCaption,
+        }
+        ],
       }).then((dt) => {
         setLoading(false);
         setErrortext('Publicacion realizadas conn exito!') ;
@@ -78,7 +73,7 @@ export default function NuevoPost({route})
             />
             <Image source={{uri: "data:image/png;base64,"+ base64Img}} style={styles.imageStyle} />
             <Pressable  onPress={() => publicarPost()} style={styles.pressLogin} titleSize={20} >
-                <Text style={styles.pressLoginText}>Publicar</Text>
+                <Text style={styles.pressLoginText}>Publicar Historia</Text>
             </Pressable>
             <AlertModal modalVisible={showModal} setModalVisible={setShowModal} mensaje={errortext} vista={provieneDe} cambiarVista={true} />
         </View>
