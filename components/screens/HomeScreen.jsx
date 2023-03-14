@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
 
-import {database, ref, set, get, child, onValue, db, collection, doc, setDoc, getDocs, orderBy } from '../../firebaseConfig/database';
+import {database, ref, set, get, child, onValue, db, collection, doc, setDoc, getDocs, orderBy, query } from '../../firebaseConfig/database';
 
 import HeaderHome from '../home/HeaderHome';
 import StoriesHome from '../home/StoriesHome';
@@ -21,7 +21,9 @@ export default function HomeScreen({ navigation, routes })
 
   useEffect(() => {
     (async () => {
-      querySnapshot = await getDocs(collection(db, "postUsers"), orderBy("post_datetime", "desc"));
+      const q = query(collection(db, "postUsers"), orderBy("post_datetime", "desc"));
+
+      const querySnapshot = await getDocs(q);
       const posts = [];
       querySnapshot.forEach((doc) => {
           posts.push(doc.data());
