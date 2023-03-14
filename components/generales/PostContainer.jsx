@@ -8,7 +8,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function PostHome({postState}) 
 {
-  console.log(postState);
   return (
     <View style={styles.container}>
         <Divider width={1} orientation='vertical'/>
@@ -29,14 +28,14 @@ export default function PostHome({postState})
         </View>
         <Text style={styles.postCaption}>{postState.post_caption}</Text>
         <View style={styles.containerImagePost}>
-          {/* <FlatList
+          <FlatList
             horizontal={true} 
             showsHorizontalScrollIndicator={false} 
             data={postState.post_images}
             renderItem={ ({ item, index }) => (
               <Image source={{ uri: item.url }} key={index} style={{width: 450,  height: 450, resizeMode:'cover'}} />
             )}
-          /> */}
+          />
         </View>
     </View>
   );

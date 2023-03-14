@@ -3,42 +3,44 @@ import { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
 
-import { database,ref, set, child, onValue } from '../../firebaseConfig/database';
+import {database, ref, set, get, child, onValue, db, collection, doc, setDoc, getDocs, orderBy } from '../../firebaseConfig/database';
 
 import HeaderHome from '../home/HeaderHome';
 import StoriesHome from '../home/StoriesHome';
 import PostContainer from '../generales/PostContainer';
 import Footer from '../generales/Footer';
+import Cargando from '../generales/Cargando';
 
+import {useIsFocused} from '@react-navigation/native';
 
-export default function HomeScreen({ navigation }) 
+export default function HomeScreen({ navigation, routes }) 
 {
   const [postData, setPostsData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
+  const isFocused = useIsFocused();
 
   useEffect(() => {
     (async () => {
-      const starCountRef = ref(database, `postsUser`);
-      onValue(starCountRef, (snapshot) => {
-        if (snapshot.exists()) {
-          setPostsData(snapshot.val())
-          console.log(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
+      querySnapshot = await getDocs(collection(db, "postUsers"), orderBy("post_datetime", "desc"));
+      const posts = [];
+      querySnapshot.forEach((doc) => {
+          posts.push(doc.data());
+      });
+      setPostsData( posts )
+      setLoading(false);
     })();
-  }, []);
+  }, [isFocused]);
 
   return (
     <SafeAreaView style={styles.container}>
+    <Cargando loading={loading} />
       <HeaderHome />
         <Divider  orientation='vertical'/>
       <StoriesHome />
       <ScrollView>
-        {/* {postData.map((post, index) =>(
+         {postData.map((post, index) =>(
             <PostContainer postState={post}  key={post.post_id}/>
-        ))} */}
+        ))}
       </ScrollView>
       <Divider  orientation='vertical'/>
       <Footer postFrom="Home" />

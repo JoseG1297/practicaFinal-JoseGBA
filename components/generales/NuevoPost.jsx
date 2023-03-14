@@ -3,7 +3,7 @@ import React, {useState, useContext} from 'react';
 import { View, StyleSheet, Image, Pressable, Text} from 'react-native';
 import Textarea from 'react-native-textarea';
 
-import { database,ref, set } from '../../firebaseConfig/database';
+import {  database, ref, set, get, child, onValue, db, collection, doc, setDoc  } from '../../firebaseConfig/database';
 
 import uuid from 'react-native-uuid';
 
@@ -23,23 +23,34 @@ export default function NuevoPost({route})
   const [showModal, setShowModal] = useState(false);
   const [errortext, setErrortext] = useState('');
 
-  const publicarPost = () => 
+  const publicarPost  =  async  () => 
   {
-    setLoading(true);
+      setLoading(true);
       let postId = uuid.v4();
 
-      set(ref(database, "postsUser/" + userInfo.uid + "/" + postId), {
+      const postUsers = collection(db, "postUsers");
+      const img64 = "data:image/png;base64,"+ base64Img;
+      let today = new Date();
+      
+      let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+      let datetime =date +" "+time;
+
+      await setDoc(doc(postUsers, postId), {
         post_id: postId,
         post_caption: postCaption,
-        post_images: [{ url: base64Img}],
+        post_images: [{ url: img64 }],
+        post_datetime: datetime,
         user_name: userInfo?.user_name,
         user_image:  userInfo?.user_image
       }).then((dt) => {
-          setLoading(false);
-          setErrortext('Publiacion realizadas conn exito!') ;
-          setShowModal(true);
-      })
-      .catch((error) => console.log(error));
+        setLoading(false);
+        setErrortext('Publicacion realizadas conn exito!') ;
+        setShowModal(true);
+    })
+    .catch((error) => console.log(error));
+
+    
   };  
 
     return (
