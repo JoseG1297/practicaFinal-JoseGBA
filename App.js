@@ -3,6 +3,7 @@ import { StyleSheet,LogBox,  SafeAreaView } from 'react-native';
 LogBox.ignoreLogs([
 "ViewPropTypes will be removed",
 "ColorPropType will be removed",
+"Cannot read property"
 ])
 
 import NavegacionGeneral from './components/navegacion/NavegacionGeneral';

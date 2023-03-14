@@ -44,11 +44,11 @@ export default function Footer({ postFrom = ""})
 
   return (
     <View style={styles.container}>
-        <TouchableOpacity onPress={() => irBiografia()}>
-            <AntDesign name="home" size={30} color="black" />
-        </TouchableOpacity>
         <TouchableOpacity onPress={() => irInicio()}>
           <FontAwesome5 name="users" size={30} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => irBiografia()}>
+            <AntDesign name="home" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => agregarImagenes()}>
             <AntDesign style={styles.icons} name="pluscircleo" size={30} color="black" />
