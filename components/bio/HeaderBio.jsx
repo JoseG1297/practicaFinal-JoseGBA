@@ -11,6 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import UsuarioSesionContext from '../hooks/SessionUser';
 
+import * as ImagePicker from "expo-image-picker";
+
 export default function HeaderBio() 
 {
   const { userInfo, setUserInfo } = useContext(UsuarioSesionContext);
@@ -21,6 +23,23 @@ export default function HeaderBio()
   }
 
 
+  const agregarImagenes = async () => { 
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      aspect: [4, 3],
+      quality: 1,
+      base64: true
+    });
+
+
+    if (result.assets.length > 0) {
+        navigation.navigate({
+          name: 'Foto Perfil',
+          params: { url: result.assets[0].base64 , postearEn: 'Biografia'}
+      });
+    }
+  }
+
   return (
     <View>
       <View style={styles.container}>
@@ -28,7 +47,7 @@ export default function HeaderBio()
             {userInfo.user_image != "" && userInfo.user_image != undefined ? <Image  source={{ uri: userInfo.user_image }} style={styles.profilePosts} /> :
                 <Image  source={require('../../imagenes/defaultImg.jpg')} style={styles.profilePosts} />}
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => agregarImagenes()}>
             <FontAwesome5 name="user-cog" size={24} color="black" />
           </TouchableOpacity>
           <TouchableOpacity  onPress={() => cerrarSesion()}>

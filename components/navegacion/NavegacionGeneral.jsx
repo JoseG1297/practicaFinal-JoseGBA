@@ -12,6 +12,7 @@ import HomeScreen from '../screens/HomeScreen';
 import RecContraScreen from '../screens/RecContraScreen';
 import NuevoPost from '../generales/NuevoPost';
 import NuevoStorie from '../home/NuevaStorie';
+import NuevaFotoPerfil from '../bio/NuevaFotoPerfil';
 
 import UsuarioSesionContext from '../hooks/SessionUser';
 
@@ -33,6 +34,7 @@ export default function NavegacionGeneral()
           <Stack.Screen name="Biografia" component={BioScreen} options={{headerShown: false}}  />
           <Stack.Screen name="Nuevo Post" component={NuevoPost}  />
           <Stack.Screen name="Nueva Historia" component={NuevoStorie}  />
+          <Stack.Screen name="Foto Perfil" component={NuevaFotoPerfil}  />
         </Stack.Navigator>
       </UsuarioSesionContext.Provider>
     </NavigationContainer>
